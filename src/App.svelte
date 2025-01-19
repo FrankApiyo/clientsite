@@ -1,11 +1,127 @@
+
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-  name = "world"
+  import svelteLogo from './assets/svelte.svg';
+  import viteLogo from '/vite.svg';
+  import Counter from './lib/Counter.svelte';
+
+  let name = "world";
+
+  // Mobile menu toggle
+  let isMenuOpen = false;
+
+  const toggleMenu = () => {
+    isMenuOpen = !isMenuOpen;
+  };
+
+  // Carousel functionality
+  let index = 0;
+  const totalImages = 3;
+
+  const showImage = (idx) => {
+    document.getElementById('carousel-images').style.transform = `translateX(-${idx * 100}%)`;
+  };
+
+  const prevImage = () => {
+    index = (index - 1 + totalImages) % totalImages;
+    showImage(index);
+  };
+
+  const nextImage = () => {
+    index = (index + 1) % totalImages;
+    showImage(index);
+  };
 </script>
 
-<main>
-  <h1 class="py-8 px-4 border border-indigo-900 shadow-lg">Hello {name}!</h1>
-  <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<main class="flex flex-col min-h-screen">
+  <!-- Navigation Bar -->
+  <header class="bg-gray-800 text-white">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="text-2xl font-bold">MyRealEstate</a>
+
+      <!-- Navigation Links (hidden on small screens) -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="hover:text-blue-400">Home</a>
+        <a href="#properties" class="hover:text-blue-400">Properties</a>
+        <a href="#about" class="hover:text-blue-400">About</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+      </nav>
+
+      <!-- Hamburger Menu (visible on small screens) -->
+      <button 
+        on:click={toggleMenu} 
+        class="md:hidden focus:outline-none"
+        aria-label="Toggle menu">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class={`md:hidden bg-gray-700 ${isMenuOpen ? '' : 'hidden'}`}>
+      <a href="#home" class="block px-4 py-2 hover:bg-gray-600">Home</a>
+      <a href="#properties" class="block px-4 py-2 hover:bg-gray-600">Properties</a>
+      <a href="#about" class="block px-4 py-2 hover:bg-gray-600">About</a>
+      <a href="#contact" class="block px-4 py-2 hover:bg-gray-600">Contact</a>
+    </div>
+  </header>
+
+  <!-- Carousel Section -->
+  <section id="carousel" class="relative w-full bg-gray-100">
+    <div class="relative overflow-hidden">
+      <div id="carousel-images" class="flex transition-transform duration-500">
+        <img src="https://placehold.co/600x400" alt="Property 1" class="w-full">
+        <img src="https://placehold.co/600x400" alt="Property 2" class="w-full">
+        <img src="https://placehold.co/600x400" alt="Property 3" class="w-full">
+      </div>
+    </div>
+    <!-- Carousel Controls -->
+    <button 
+      on:click={prevImage} 
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2"
+      aria-label="Previous image">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button 
+      on:click={nextImage} 
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2"
+      aria-label="Next image">
+      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white mt-auto">
+    <div class="container mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- About Section -->
+      <div>
+        <h3 class="text-xl font-bold mb-2">About Us</h3>
+        <p class="text-sm text-gray-400">We help you find the home of your dreams with the best listings available.</p>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-xl font-bold mb-2">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="#home" class="hover:text-blue-400">Home</a></li>
+          <li><a href="#properties" class="hover:text-blue-400">Properties</a></li>
+          <li><a href="#about" class="hover:text-blue-400">About</a></li>
+          <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Contact Section -->
+      <div>
+        <h3 class="text-xl font-bold mb-2">Contact Us</h3>
+        <p class="text-sm text-gray-400">Email: info@myrealestate.com</p>
+        <p class="text-sm text-gray-400">Phone: +1 234 567 890</p>
+      </div>
+    </div>
+    <div class="text-center text-gray-500 text-sm py-4 border-t border-gray-700">
+      © 2025 MyRealEstate. All rights reserved.
+    </div>
+  </footer>
 </main>
