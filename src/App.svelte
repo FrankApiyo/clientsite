@@ -3,6 +3,8 @@
   import svelteLogo from './assets/svelte.svg';
   import viteLogo from '/vite.svg';
   import Counter from './lib/Counter.svelte';
+  import Carousel from 'svelte-carousel'
+  import Color from './lib/Color.svelte'
 
   let name = "world";
 
@@ -13,23 +15,11 @@
     isMenuOpen = !isMenuOpen;
   };
 
-  // Carousel functionality
-  let index = 0;
-  const totalImages = 3;
-
-  const showImage = (idx) => {
-    document.getElementById('carousel-images').style.transform = `translateX(-${idx * 100}%)`;
-  };
-
-  const prevImage = () => {
-    index = (index - 1 + totalImages) % totalImages;
-    showImage(index);
-  };
-
-  const nextImage = () => {
-    index = (index + 1) % totalImages;
-    showImage(index);
-  };
+  const colors = [
+    { color: '#e5f9f0', text: '0' },
+    { color: '#ccf3e2', text: '1' },
+    { color: '#b2edd3', text: '2' },
+    ]
 </script>
 
 <main class="flex flex-col min-h-screen">
@@ -37,7 +27,7 @@
   <header class="bg-gray-800 text-white">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#" class="text-2xl font-bold">MyRealEstate</a>
+      <a href="#" class="text-2xl font-bold">MACROVISON PROPERTY</a>
 
       <!-- Navigation Links (hidden on small screens) -->
       <nav class="hidden md:flex space-x-6">
@@ -69,30 +59,11 @@
 
   <!-- Carousel Section -->
   <section id="carousel" class="relative w-full bg-gray-100">
-    <div class="relative overflow-hidden">
-      <div id="carousel-images" class="flex transition-transform duration-500">
-        <img src="https://placehold.co/600x400" alt="Property 1" class="w-full">
-        <img src="https://placehold.co/600x400" alt="Property 2" class="w-full">
-        <img src="https://placehold.co/600x400" alt="Property 3" class="w-full">
-      </div>
-    </div>
-    <!-- Carousel Controls -->
-    <button 
-      on:click={prevImage} 
-      class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2"
-      aria-label="Previous image">
-      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <button 
-      on:click={nextImage} 
-      class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2"
-      aria-label="Next image">
-      <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
+    <Carousel>
+    {#each colors as { color, text } (color)}
+      <Color {color} {text} />
+    {/each}
+    </Carousel>
   </section>
 
   <!-- Footer -->
@@ -121,7 +92,7 @@
       </div>
     </div>
     <div class="text-center text-gray-500 text-sm py-4 border-t border-gray-700">
-      © 2025 MyRealEstate. All rights reserved.
+      © 2025 MACROVISON PROPERTY. All rights reserved.
     </div>
   </footer>
 </main>
