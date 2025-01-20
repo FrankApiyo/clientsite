@@ -70,7 +70,7 @@
   <footer class="bg-gray-800 text-white mt-auto">
     <div class="container mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
       <!-- About Section -->
-      <div>
+      <div id="about">
         <h3 class="text-xl font-bold mb-2">About Us</h3>
         <p class="text-sm text-gray-400">We help you find the home of your dreams with the best listings available.</p>
       </div>
@@ -85,10 +85,20 @@
         </ul>
       </div>
       <!-- Contact Section -->
-      <div>
+      <div id="contact">
         <h3 class="text-xl font-bold mb-2">Contact Us</h3>
-        <p class="text-sm text-gray-400">Email: info@myrealestate.com</p>
-        <p class="text-sm text-gray-400">Phone: +1 234 567 890</p>
+        <p class="text-sm text-gray-400">
+          Email:
+          <a href="mailto:info@macrovisionproperty.com" aria-label="email us at info@macrovisionproperty.com" target="_blank">
+            info@macrovisionproperty.com
+          </a>
+        </p>
+        <p class="text-sm text-gray-400">
+          Phone:
+            <a href="tel:+254795360285" aria-label="call us at +254795360285" target="_blank">
+              +254 795 360285
+            </a>
+          </p>
       </div>
     </div>
     <div class="text-center text-gray-500 text-sm py-4 border-t border-gray-700">
