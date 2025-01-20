@@ -2,7 +2,7 @@
 <script>
   import Counter from './lib/Counter.svelte';
   import Carousel from 'svelte-carousel'
-  import Color from './lib/Color.svelte'
+  import ImageLink from './lib/ImageLink.svelte'
 
   // Mobile menu toggle
   let isMenuOpen = false;
@@ -11,10 +11,10 @@
     isMenuOpen = !isMenuOpen;
   };
 
-  const colors = [
-    { color: '#e5f9f0', text: '0' },
-    { color: '#ccf3e2', text: '1' },
-    { color: '#b2edd3', text: '2' },
+  const images = [
+    { link: 'Portsmouth-Spinnaker.jpg', text: 'Portsmouth-Spinnaker' },
+    { link: 'IMG_5934-e1479902141638.jpg', text: "Fuller's bridge" },
+    { link: 'southsea-3851740_1920.jpg', text: 'South sea' },
     ]
 </script>
 
@@ -59,8 +59,8 @@
   <!-- Carousel Section -->
   <section id="carousel" class="relative w-full bg-gray-100">
     <Carousel>
-    {#each colors as { color, text } (color)}
-      <Color {color} {text} />
+    {#each images as { link, text } }
+      <ImageLink {link} {text} />
     {/each}
     </Carousel>
   </section>
