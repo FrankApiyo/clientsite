@@ -45,3 +45,6 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from 'svelte/store'
 export default writable(0)
 ```
+
+### Link to logrocket documentation:
+- https://blog.logrocket.com/how-to-use-tailwind-css-svelte/
