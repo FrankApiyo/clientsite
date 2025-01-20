@@ -1,12 +1,8 @@
 
 <script>
-  import svelteLogo from './assets/svelte.svg';
-  import viteLogo from '/vite.svg';
   import Counter from './lib/Counter.svelte';
   import Carousel from 'svelte-carousel'
   import Color from './lib/Color.svelte'
-
-  let name = "world";
 
   // Mobile menu toggle
   let isMenuOpen = false;
@@ -27,7 +23,10 @@
   <header class="bg-gray-800 text-white">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#" class="text-2xl font-bold">MACROVISON PROPERTY</a>
+      <a href="#" class="flex items-center gap-2 text-2xl font-bold">
+        <img src="macrovision-logo.png" alt="Macrovision Property Logo" class="h-5">
+        MACROVISON PROPERTY
+      </a>
 
       <!-- Navigation Links (hidden on small screens) -->
       <nav class="hidden md:flex space-x-6">
