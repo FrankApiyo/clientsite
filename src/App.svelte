@@ -1,6 +1,5 @@
 
 <script>
-  import Counter from './lib/Counter.svelte';
   import Carousel from 'svelte-carousel'
   import ImageLink from './lib/ImageLink.svelte'
 
