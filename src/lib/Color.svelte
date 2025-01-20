@@ -23,4 +23,7 @@
     font-style: italic;
     font-size: 18px;
   }
+  .color-container {
+    height: 35vh !important;
+  }
 </style>
