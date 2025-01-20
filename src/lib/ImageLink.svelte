@@ -2,7 +2,6 @@
   export let link, text
 </script>
 
-
 <div
   class="w-full flex items-center justify-center select-none bg-cover bg-center"
   style="background-image: url({link});"
