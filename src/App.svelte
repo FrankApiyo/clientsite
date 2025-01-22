@@ -64,6 +64,38 @@
     </Carousel>
   </section>
 
+  <!-- New Section: Cards -->
+  <section id="cards" class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Luxury Homes</h3>
+        <p class="text-gray-600">
+          Explore our exclusive collection of luxury homes tailored to meet your high standards.
+        </p>
+        <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Learn More →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Commercial Properties</h3>
+        <p class="text-gray-600">
+          Find the perfect commercial space for your business with our curated listings.
+        </p>
+        <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Learn More →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Investment Opportunities</h3>
+        <p class="text-gray-600">
+          Discover lucrative real estate investment opportunities with high returns.
+        </p>
+        <a href="#" class="mt-4 inline-block text-blue-500 hover:text-blue-700">Learn More →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-gray-800 text-white mt-auto">
     <div class="container mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
